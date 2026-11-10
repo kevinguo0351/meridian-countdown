@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", "Iowan Old Style", Palatino, serif;
+  --font-sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+  --color-ivory: #f6f1e7;
+  --color-ink: #0b0c0e;
+  --color-quiet: #cfc8bc;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background: #0b0c0e;
+  color: #f6f1e7;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Unlayered so it wins over the page's inherited ivory. */
+.ink-on-ivory {
+  background: #f6f1e7;
+  color: #14120e;
+}
+
+.ink-on-ivory:disabled {
+  opacity: 0.55;
+}
+
+::selection {
+  background: #e0b15c;
+  color: #1a140c;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent, #e0b15c);
+  outline-offset: 3px;
+}
+
+.glass {
+  background: rgba(14, 15, 18, 0.82);
+  border: 1px solid rgba(246, 241, 231, 0.12);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(22px) saturate(1.25);
+}
+
+.lock-screen {
+  container-type: size;
+}
+
+input[type='datetime-local']::-webkit-calendar-picker-indicator {
+  filter: invert(0.9);
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
